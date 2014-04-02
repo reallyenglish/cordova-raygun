@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  id="org.reallyenglish.raygun" version="0.1.0">
+  <name>Raygun</name>
+  <description>Reallyenglish Raygun</description>
+  <license>Apache 2.0</license>
+  <keywords>reallyenglish,raygun</keywords>
+  <engines>
+    <engine name="cordova" version=">=3.0.0" />
+  </engines>
+  <js-module src="www/Raygun.js" name="Raygun">
+    <clobbers target="plugins.raygun" />
+  </js-module>
+
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="Raygun">
+        <param name="ios-package" value="CDVRaygun"/>
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/CDVRaygun.h" />
+    <source-file src="src/ios/CDVRaygun.m" />
+
+    <framework src="src/ios/framework/Raygun4iOS.framework" custom="true"/>
+  </platform> 
+</plugin>
